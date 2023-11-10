@@ -2,23 +2,34 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+# Define a dictionary to map category names to their respective URLs
+categories_mapping = {
+    'keyboards': 'Keyboards',
+    'mice': 'Mice',
+    'laptops': 'Laptops',
+    'headphones': 'Headphones',
+    'accessories': 'Accessories',
+    'monitors': 'Monitors',
+    'chairs': 'Chairs',
+    'storage':'Storage',
+    'graphics-cards':'Graphics-Cards',
+    'power-supplies': 'Power-Supplies'
+}
+
 @app.route('/')
 def homepage():
-    categories = [
-        'Keyboards', 'Mice', 'Laptops', 'Headphones'
-    ]
+    # Get a list of category names from the mapping dictionary
+    categories = list(categories_mapping.values())
     return render_template('index.html', categories=categories)
 
 @app.route('/<category>')
 def category_page(category):
-    # Replace spaces with underscores and convert to lowercase for template filenames
-    template_name = category.replace(" ", "_").lower() + '.html'
-    return render_template(template_name)
-
-
-
+    # Check if the requested category exists in the mapping
+    if category in categories_mapping:
+        category_name = categories_mapping[category]
+        return render_template(f'{category}.html', categories=[category_name])
+    else:
+        return "Category not found", 404
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
