@@ -57,20 +57,23 @@
   }
 .category-images {
   display: flex;
-  justify-content: center; /* This will center the children */
+  flex-wrap: wrap; /* Allow the items to wrap as needed */
+  justify-content: center; /* Center the images in the container */
   margin-bottom: 20px;
 }
 
-  .category-image {
-    width: 500px;
-    height: 300px;
-    background-color: #ddd;
-    display: inline-block;
-    line-height: 150px;
-    text-align: center;
-    color: #333;
-    margin: 0 10px;
-  }
+.category-image {
+  width: calc(25% - 20px); /* Adjust the width to be 25% minus the total margin */
+  height: auto; /* Adjust the height to maintain aspect ratio */
+  background-color: #ddd;
+  margin: 10px; /* Provide some space between images */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+/* Adjust the image size within the category-image */
+.category-image img {
+  width: 100%;
+  height: auto;
+}
   .category-title {
     margin-top: 5px;
   }
@@ -112,58 +115,29 @@
     </a>
   </div>
 
-<!-- The rest of your webpage's content will go here -->
+<!-- ... Your existing HTML up to the point of category images ... -->
+
+  <!-- The rest of your webpage's content will go here -->
 {% for category in categories %}
   <div class="category">
     <div class="category-header">{{ category }}:</div>
     <div class="category-images">
-      <div class="category-image">
-        Image 1
-        <div class="category-title">Title 1</div>
-      </div>
-      <div class="category-image">
-        Image 2
-        <div class="category-title">Title 2</div>
-      </div>
-      <div class="category-image">
-        Image 3
-        <div class="category-title">Title 3</div>
-      </div>
-      <div class="category-image">
-        Image 4
-        <div class="category-title">Title 4</div>
-      </div>
-    </div>
-    <div class="category-images">
-      <div class="category-image">
-        Image 5
-        <div class="category-title">Title 5</div>
-      </div>
-      <div class="category-image">
-        Image 6
-        <div class="category-title">Title 6</div>
-      </div>
-      <div class="category-image">
-        Image 7
-        <div class="category-title">Title 7</div>
-      </div>
-      <div class="category-image">
-        Image 8
-        <div class="category-title">Title 8</div>
-      </div>
-    </div>
-    <div class="category-images">
-      <div class="category-image">
-        Image 9
-        <div class="category-title">Title 9</div>
-      </div>
-      <div class="category-image">
-        Image 10
-        <div class="category-title">Title 10</div>
-      </div>
+      {% if category == 'Keyboards' %}
+        {% for i in range(1, 13) %}
+          <div class="category-image">
+            <img src="static/images/keyboard.png" alt="Keyboard Image {{ i }}" style="width:100%;height:auto;">
+            <div class="category-title">Keyboard {{ i }}</div>
+          </div>
+        {% endfor %}
+      {% endif %}
     </div>
   </div>
 {% endfor %}
+
+
+
+<!-- ... The rest of your HTML ... -->
+
 
 
 </body>
