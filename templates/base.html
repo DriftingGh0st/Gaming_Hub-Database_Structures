@@ -129,10 +129,78 @@
             <div class="category-title">Keyboard {{ i }}</div>
           </div>
         {% endfor %}
+      {% elif category == 'Chairs' %}
+        {% for i in range(1, 13) %}
+          <div class="category-image">
+            <img src="static/images/chair.png" alt="Chair Image {{ i }}" style="width:100%;height:auto;">
+            <div class="category-title">Chair {{ i }}</div>
+          </div>
+        {% endfor %}
+      <!-- Your existing 'elif' blocks -->
+      {% elif category == 'Mice' %}
+        {% for i in range(1, 13) %}
+          <div class="category-image">
+            <img src="static/images/mouse.png" alt="Mouse Image {{ i }}" style="width:100%;height:auto;">
+            <div class="category-title">Mouse {{ i }}</div>
+          </div>
+        {% endfor %}
+      {% elif category == 'Monitors' %}
+        {% for i in range(1, 13) %}
+          <div class="category-image">
+            <img src="static/images/monitor.png" alt="Monitor Image {{ i }}" style="width:100%;height:auto;">
+            <div class="category-title">Monitor {{ i }}</div>
+          </div>
+        {% endfor %}
+      {% elif category == 'Headphones' %}
+        {% for i in range(1, 13) %}
+          <div class="category-image">
+            <img src="static/images/headphones.png" alt="Headphone Image {{ i }}" style="width:100%;height:auto;">
+            <div class="category-title">Headphone {{ i }}</div>
+          </div>
+        {% endfor %}
+       {% elif category == 'Graphics-Cards' %}
+        {% for i in range(1, 13) %}
+          <div class="category-image">
+            <img src="static/images/graphics-card.png" alt="Graphics Card Image {{ i }}" style="width:100%;height:auto;">
+            <div class="category-title">Graphics Card {{ i }}</div>
+          </div>
+        {% endfor %}
+      {% elif category == 'Laptops' %}
+        {% for i in range(1, 13) %}
+          <div class="category-image">
+            <img src="static/images/laptop.png" alt="Laptop Image {{ i }}" style="width:100%;height:auto;">
+            <div class="category-title">Laptop {{ i }}</div>
+          </div>
+        {% endfor %}
+{% elif category == 'Accessories' %}
+        {% for i in range(1, 13) %}
+          <div class="category-image">
+            <img src="static/images/accessories.png" alt="Accessory Image {{ i }}" style="width:100%;height:auto;">
+            <div class="category-title">Accessory {{ i }}</div>
+          </div>
+        {% endfor %}
+      {% elif category == 'Power-Supplies' %}
+        {% for i in range(1, 13) %}
+          <div class="category-image">
+            <img src="static/images/power-supply.png" alt="Power Supply Image {{ i }}" style="width:100%;height:auto;">
+            <div class="category-title">Power Supply {{ i }}</div>
+          </div>
+        {% endfor %}
+      {% elif category == 'Storage' %}
+        {% for i in range(1, 13) %}
+          <div class="category-image">
+            <img src="static/images/storage.png" alt="Storage Image {{ i }}" style="width:100%;height:auto;">
+            <div class="category-title">Storage {{ i }}</div>
+          </div>
+        {% endfor %}
+      {% elif category == 'Cart' %}
+        <!-- Assuming 'Cart' is not a category of items but rather a page element, it might not be included here. -->
       {% endif %}
     </div>
   </div>
 {% endfor %}
+
+
 
 
 
